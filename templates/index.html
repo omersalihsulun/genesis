@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body%}
+
+<h3>Anasayfa</h3>
+<div class="jumbotron text-center">
+    <h3>Yetenek Kaşifi Sitesine Hoşgeldiniz</h3>
+    <p>Bu sitede, gelecek vaad edeceğini düşündüğünüz futbolcuların potansiyellerini tahmin eden yapay zeka modelini kullanabilirsiniz.</p>
+</div>
+<p>
+
+    {% if request.user.is_authenticated %}
+        Hoşgeldin, <strong>{{request.user.username}}</strong>
+    {% else %}
+        <h5>Yapay zeka modelini kullanabilmek için <a href="{% url 'user:login'  %}"> giriş yapınız.</a></h5>
+    {% endif %} 
+</p>
+{% endblock body%}
+
+

@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+      <!-- Title -->
+      <h1 class="mt-4">{{predict.isim}}</h1>
+
+      <!-- Author -->
+      <p class="lead">
+        Tahmin <strong>{{predict.user}}</strong> kullanıcısı tarafından yaptırıldı.
+      </p>
+
+      <hr>
+
+      
+
+
+      <!-- Post Content -->
+      <h3>Genel Özellikleri</h3>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Ortalama Kuvveti
+    <span class="badge badge-primary badge-pill">{{predict.Overal|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Boyu
+    <span class="badge badge-primary badge-pill">{{predict.Height|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Kilosu
+    <span class="badge badge-primary badge-pill">{{predict.Weight|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Yaşı
+    <span class="badge badge-primary badge-pill">{{predict.Age|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Piyasa Değeri (€)
+    <span class="badge badge-primary badge-pill">{{predict.Value|floatformat:"g"}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Haftalık Maaşı (€)
+    <span class="badge badge-primary badge-pill">{{predict.Wage|floatformat:"g"}}</span>
+  </li>
+</ul>
+<h3>Saha İçi Genel Özellikleri</h3>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Zayıf Ayak Kuvveti(?/5)
+    <span class="badge badge-primary badge-pill">{{predict.WeakFoot|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Beceri Hareketleri(?/5)
+    <span class="badge badge-primary badge-pill">{{predict.SkillMoves|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Mevkisi
+    <span class="badge badge-primary badge-pill">{{predict.Position}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Ofansif/Defansif Çalışma Oranı
+    <span class="badge badge-primary badge-pill">{{predict.WorkRate}}</span>
+  </li><li class="list-group-item d-flex justify-content-between align-items-center">
+    Tercih Ettiği Ayak
+    <span class="badge badge-primary badge-pill">{{predict.PreferredFoot_R}}</span>
+  </li>
+</ul>
+<h3>Saha İçi Genel Yetenekleri</h3>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Kalecilik Yetenekleri
+    <span class="badge badge-primary badge-pill">{{predict.GKSkills|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Şut Yetenekleri
+    <span class="badge badge-primary badge-pill">{{predict.Shooting|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Fiziki Yetenekleri
+    <span class="badge badge-primary badge-pill">{{predict.Physical|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Mental Kabiliyeti
+    <span class="badge badge-primary badge-pill">{{predict.Mental|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Defansif Yeteneği
+    <span class="badge badge-primary badge-pill">{{predict.Defence|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Pas Yeteneği
+    <span class="badge badge-primary badge-pill">{{predict.Passing|floatformat}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Topla Oynama Becerisi
+    <span class="badge badge-primary badge-pill">{{predict.BallSkills|floatformat}}</span>
+  </li>
+</ul>
+      <hr>
+
+      <h1 class="display-3">Tahmini Potansiyeli: {{predict.Result|floatformat}}</h1>
+
+      
+      
+
+    </div>
+
+    
+
+  </div>
+<!-- Date/Time -->
+      <p>{{predict.created_date}}</p>
+
+      <hr>
+
+{% endblock body %}

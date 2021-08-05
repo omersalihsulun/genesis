@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Selamun Aleyküm agalar</h1>
+    <form action="{%url 'result'}">
+        {% csrf_token %}
+        Overal <input type="text" required name = "Overal"> <br> <br>
+        Height <input type="text" required name = "Height"> <br> <br>
+        Weight <input type="text" required name = "Weight"> <br> <br>
+        Age <input type="text" required name = "Age"> <br> <br>
+        WeakFoot <input type="text" required name = "WeakFoot"> <br> <br>
+        SkillMoves <input type="text" required name = "SkillMoves"> <br> <br>
+        Value <input type="text" required name = "Value"> <br> <br>
+        Wage <input type="text" required name = "Wage"> <br> <br>
+        Position <select name = "Position" id="Position"> 
+            <option value="CAM">CAM</option>
+            <option value="CB">CB</option>
+            <option value="CDM">CDM</option>
+            <option value="CF">CF</option>
+            <option value="CF">CM</option>
+            <option value="GK">GK</option>
+            <option value="LB">LB</option>
+            <option value="LM">LM</option>
+            <option value="LW">LW</option>
+            <option value="LWB">LWB</option>
+            <option value="RB">RB</option>
+            <option value="RM">RM</option>
+            <option value="RW">RW</option>
+            <option value="RWB">RWB</option>
+            <option value="ST">ST</option>
+            
+            </select><br> <br>
+            PlayerWorkRate (Attacking/Defensive) <select name = "Workrate" id="PlayerWorkRate"> 
+                <option value="High/High">High/High</option>
+                <option value="High/Low">High/Low</option>
+                <option value="High/Medium">High/Medium</option>
+                <option value="Low/High">Low/High</option>
+                <option value="Low/Low">Low/Low</option>
+                <option value="Low_Medium">Low_Medium</option>
+                <option value="Medium/High">Medium/High</option>
+                <option value="Medium/Low">Medium/Low</option>
+                <option value="Medium/Medium">Medium/Medium</option>
+                
+                </select><br> <br>
+        Preferred  Foot  
+        Right <input type="radio" name="foot" value="Right"> 
+        Left  <input type="radio" name="foot" value="Left"> <br> <br>
+        GKSkills <input type="text" required name = "GKSkills"> <br> <br>
+        Shooting <input type="text" required name = "Shooting"> <br> <br>
+        Physical <input type="text" required name = "Physical"> <br> <br>
+        Mental <input type="text" required name = "Mental"> <br> <br>
+        Defence <input type="text" required name = "Defence"> <br> <br>
+        Passing <input type="text" required name = "Passing"> <br> <br>
+        BallSkills <input type="text" required name = "BallSkills"> <br> <br>
+
+        <input type="submit" value="Gönder">
+    </form>
+{% endblock body %}

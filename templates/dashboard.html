@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>Kontrol Paneli</h3>
+<hr>
+<p>Hoşgeldiniz, <strong>{{request.user.username}}</strong></p>
+<hr>
+
+<a class="btn btn-success" href= "/aimodel/newpredict">Yeni Tahmin Yap</a>
+<hr>
+{% if predicts %}
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Futbolcu İsmi</th>
+        <th scope="col">Tahmini Yaptıran Kullanıcı</th>
+        <th scope="col">Ortalama Yeteneği</th>
+        <th scope="col">Yaşı</th>
+        <th scope="col">Mevkisi</th>
+        <th scope="col">Potansiyeli</th>
+        <th scope="col">Tarih</th>
+        <th scope="col">Güncelle</th>
+        <th scope="col">Sil</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for predict in predicts %}
+    <tr>
+        <th scope="row">{{predict.id}}</th>
+        <td><a href="/aimodel/predict/{{predict.id}}">{{predict.isim}}</a></td>
+        <td>{{predict.user.username}}</td>
+        <td>{{predict.Overal|floatformat}}</td>
+        <td>{{predict.Age|floatformat:"0"}}</td>
+        <td>{{predict.Position}}</td>
+        <td>{{predict.Result|floatformat}}</td>
+        <td>{{predict.created_date}}</td>
+        <td><a href="/aimodel/update/{{predict.id}}" class = "btn btn-primary">Güncelle</a></td>
+        <td><a href="/aimodel/delete/{{predict.id}}" class = "btn btn-danger">Sil</a></td>
+    </tr>
+    {% endfor %}
+      <!---<tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr> -->
+     
+    </tbody>
+  </table>
+
+{% else %}
+<div class ="alert alert-danger">Henüz bir tahmin yapılmadı...</div>
+{% endif %}
+
+
+{% endblock body %} 
